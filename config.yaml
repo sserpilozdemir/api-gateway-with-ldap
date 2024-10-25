@@ -1,0 +1,25 @@
+redis:
+  url: "redis://localhost:6379/0"
+
+rate_limit:
+  default: "10 per minute"
+  storage_uri: "memory://"
+
+cache:
+  timeout: 10 #keep 10 sec
+
+services: ##microservices
+  service_users: "http://localhost:3000"
+  service_funds: "http://localhost:9119/api"
+  external_api: "https://api.exchangerate-api.com/v4" #for app's performance test
+
+ldap:
+  host: "0.0.0.0:1389"
+  base_dn: "dc=example,dc=org"
+  user_dn: "ou=users"
+  group_dn: "ou=groups"
+  user_login_attr: "cn"
+  bind_user_dn: "cn=admin,dc=example,dc=org"
+  bind_user_password: "adminpassword"
+  user_search_scope: "SUBTREE"
+  search_for_groups: False
